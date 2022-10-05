@@ -100,11 +100,11 @@ export default function Home() {
                 <h5>LIVE ONLINE COURSE BY DR. MANU SURENDHER</h5>
                 <p>Success  you achieve can be beyond your ken, <br /> if your passion and enthusiasm is boundless.</p>
                 <p>Build a new empire of Success  and  learn the science of Success Celebrate your life with  passion. Acquire knowledge and fly high.Shrink off your laziness and break the shed of limitations.;</p>
-                <p>Don't  limit your challenges; Challenge your  limits. Nothing can drag you down, if you  are desirous. Remember,</p>
+                <p>Don&apos;t  limit your challenges; Challenge your  limits. Nothing can drag you down, if you  are desirous. Remember,</p>
                 <p>you  desire and achieve  through hard work in a smart way. Identify your calibre and your destination.</p>
                 <p>Contemplate each and every point. <br />
                   I believe  that there is something  in everything. <br />
-                  You can't do everything you wish, But you can wish what you  can do! No matter what you  were, but it matters what you  are. <br />
+                  You can&apos;t do everything you wish, But you can wish what you  can do! No matter what you  were, but it matters what you  are. <br />
                   You create circumstances  to be great not circumstances  create you.</p>
                 <p>We believe strongly that miracles take place, where invisible fences are broken and when one truly gets trained. We strive and our vision is to maximize human potential for facing challenges courageously to enhance happiness and attain peace of mind.</p>
               </div>
@@ -179,7 +179,7 @@ export default function Home() {
                     <div className={`${styles.content} ${activeDetailsPoint == 2 && styles.active}`}>
                       We coach to: <br />
                       Find what customers expect from you. <br />
-                      How to beat competitors' offerings. <br />
+                      How to beat competitors&apos; offerings. <br />
                       How to think like a customer. <br />
                       Prioritize customer service. <br />
                       How to communicate with customers efficiently. <br />
@@ -261,8 +261,8 @@ export default function Home() {
           <div className="container">
             <div className={styles.wrapper}>
               <div className={styles.content}>
-                <h2>If you don't start now... when?</h2>
-                <p>Efforts have been made to this course entitled "When masters speak miracles are born" But perfection belies in you.</p>
+                <h2>If you don&apos;t start now... when?</h2>
+                <p>Efforts have been made to this course entitled &quot;When masters speak miracles are born&quot; But perfection belies in you.</p>
                 <video src="https://drive.google.com/uc?export=preview&id=1_6rmIrGfE9mPsVlqWopt56Yq3RyDnVS6" controls></video>
                 <video src="https://drive.google.com/uc?export=preview&id=1eCL1YvY2EtasGGOe_z2LBMjIJBTpB6JB" controls></video>
               </div>
