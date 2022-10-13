@@ -2,17 +2,26 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { BiVolumeFull, BiVolumeMute, BiCaretDown, BiCaretUp } from 'react-icons/bi';
-import { FaFacebook, FaYoutube, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaYoutube, FaInstagram, FaTwitter, FaWhatsapp, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function Home() {
 
+  const [activeCarouselItem, setActiveCarouselItem] = useState(0);
   const [videoMuted, setVideoMuted] = useState(true);
   const [activeDetailsPoint, setActiveDetailsPoint] = useState(-1);
 
   const handleActivePoints = (index) => {
     if (index == activeDetailsPoint) setActiveDetailsPoint(-1);
     else setActiveDetailsPoint(index);
+  }
+
+  const nextCarousel = () => {
+    if (activeCarouselItem == 1) {
+      setActiveCarouselItem(0);
+    } else {
+      setActiveCarouselItem(1);
+    }
   }
 
   return (
@@ -42,35 +51,38 @@ export default function Home() {
           <div className="container">
             <div className={styles.header}>
               <div className={styles.content}>
-                <h1>The <span>life coach</span> who transformed thousands of people positively.</h1>
+                <h1>When masters Speak <span>Miracles</span> Are Born.</h1>
                 <button className={styles.btn_primary}>Learn more</button>
               </div>
-              <div className={styles.angle}></div>
             </div>
             <div className={styles.carousel}>
-              <video src="https://drive.google.com/uc?export=preview&id=1R_FiQnND0ELuwMjVNU_S32eUBXlxI4mi" autoPlay muted={videoMuted} loop className={styles.video}></video>
-              <div className={styles.icon} onClick={() => setVideoMuted(!videoMuted)}>
-                {
-                  videoMuted ? <BiVolumeMute /> : <BiVolumeFull />
-                }
+              <div className={`${styles.arrow} ${styles.left}`} onClick={nextCarousel}>
+                <FaChevronLeft />
+              </div>
+              <div className={styles.carousel_wrapper}>
+                <div className={`${styles.carousel_item} ${activeCarouselItem == 0 ? styles.active : ''}`}>
+                  <video src="https://drive.google.com/uc?export=preview&id=1R_FiQnND0ELuwMjVNU_S32eUBXlxI4mi" autoPlay={activeCarouselItem == 0} muted={videoMuted || activeCarouselItem != 0} loop className={styles.video}></video>
+                  <div className={styles.icon} onClick={() => setVideoMuted(!videoMuted)}>
+                    {
+                      videoMuted ? <BiVolumeMute /> : <BiVolumeFull />
+                    }
+                  </div>
+                </div>
+                <div className={`${styles.carousel_item} ${styles.carousel_item_with_bg} ${activeCarouselItem == 1 ? styles.active : ''}`}>
+                  <div className={styles.content}>
+                    <h5>Dr Manu Surendher is a Mentor who helps thousands of people to deposit only positive thoughts in their memory banks.</h5>
+                    <h5>He is a Life Coach who believes strongly that love , enthusiasm and never ending consistent improvements will help everyone to be the embodiment of success.</h5>
+                  </div>
+                </div>
+              </div>
+              <div className={`${styles.arrow} ${styles.right}`} onClick={nextCarousel}>
+                <FaChevronRight />
               </div>
             </div>
 
             <div className={styles.banner}>
-              <h3>When masters speak miracles are born.</h3>
+              <h3>The life coach who transformed thousands of people positively.</h3>
               <button className={styles.btn_secondary}>Register now</button>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.about}>
-          <div className="container">
-            <div className={styles.wrapper}>
-              <div className={styles.content}>
-                <h5>Dr Manu Surendher is a Mentor who helps thousands of people to deposit only positive thoughts in their memory banks.</h5>
-                <h5>He is a Life Coach who believes strongly that love , enthusiasm and never ending consistent improvements will help everyone to be the embodiment of success.</h5>
-              </div>
-              <div className={styles.image}></div>
             </div>
           </div>
         </div>
@@ -96,7 +108,7 @@ export default function Home() {
           <div className="container">
             <div className={styles.wrapper}>
               <div className={styles.content}>
-                <h2>When masters speak <span>Miracles</span> are born</h2>
+                <h2>When masters speak <br /> <span>Miracles</span> are born</h2>
                 <h5>LIVE ONLINE COURSE BY DR. MANU SURENDHER</h5>
                 <p>Success  you achieve can be beyond your ken, <br /> if your passion and enthusiasm is boundless.</p>
                 <p>Build a new empire of Success  and  learn the science of Success Celebrate your life with  passion. Acquire knowledge and fly high.Shrink off your laziness and break the shed of limitations.;</p>
@@ -125,7 +137,7 @@ export default function Home() {
                 <p>learn to transform  your life with positivity.
                   This  is a course which is for the people who love themselves and desire strongly to improve to change their attitude and with a lot to  succeed.
                   The moment you listen to your mentor,  you will start thinking and finally  it will be understood  how ,where, what you have lost.</p>
-                <h5>When masters speak Miracles are born</h5>
+                <h5>When masters speak <span>Miracles</span> are born</h5>
                 <p>Throgh which it is well explained that how to overcome crisis and to be successful.</p>
                 <button className={styles.btn_primary}>Register now</button>
               </div>
@@ -263,8 +275,8 @@ export default function Home() {
               <div className={styles.content}>
                 <h2>If you don&apos;t start now... when?</h2>
                 <p>Efforts have been made to this course entitled &quot;When masters speak miracles are born&quot; But perfection belies in you.</p>
-                <video src="https://drive.google.com/uc?export=preview&id=1_6rmIrGfE9mPsVlqWopt56Yq3RyDnVS6" controls></video>
-                <video src="https://drive.google.com/uc?export=preview&id=1eCL1YvY2EtasGGOe_z2LBMjIJBTpB6JB" controls></video>
+                <iframe className={styles.iframe_interview} src="https://drive.google.com/file/d/1_6rmIrGfE9mPsVlqWopt56Yq3RyDnVS6/preview" allow="autoplay"></iframe>
+                <iframe className={styles.iframe_interview} src="https://drive.google.com/file/d/1eCL1YvY2EtasGGOe_z2LBMjIJBTpB6JB/preview" allow="autoplay"></iframe>
               </div>
             </div>
             <div className={styles.banner}>
@@ -279,8 +291,8 @@ export default function Home() {
             <div className={styles.wrapper}>
               <div className={styles.content}>
                 <h2>Interview with Dr Manu Surendher</h2>
-                <video src="https://doc-08-0s-docs.googleusercontent.com/docs/securesc/pvrfa76i9oknk4f0vph8rrllf61nrrnl/navqn2ceguhalv9bfucnhlplvaoshrh2/1664981250000/14653348993913553005/14653348993913553005/1dbvMvmb3zbnjyYwvJOcz-E5I-xtPGLqY?e=preview" controls></video>
-                <video src="https://drive.google.com/uc?export=preview&id=1TQDekKZPneW1QQEXGXo6ETptMzZzqgiJ" controls></video> <br />
+                <iframe className={styles.iframe_interview} src="https://drive.google.com/file/d/1dbvMvmb3zbnjyYwvJOcz-E5I-xtPGLqY/preview" allow="autoplay"></iframe>
+                <iframe className={styles.iframe_interview} src="https://drive.google.com/file/d/1TQDekKZPneW1QQEXGXo6ETptMzZzqgiJ/preview" allow="autoplay"></iframe> <br />
                 <button className={`${styles.btn_primary} ${styles.btn_active}`}>Register Now</button>
               </div>
             </div>
